@@ -1,0 +1,12 @@
+
+body{
+    background: url("../images/triangular.png");
+}
+
+.titulo{
+    font-weight: bold;
+}
+
+.logo{
+    margin-top: 25%;
+}
