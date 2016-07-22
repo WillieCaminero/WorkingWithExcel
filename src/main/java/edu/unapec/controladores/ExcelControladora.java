@@ -1,6 +1,6 @@
 package edu.unapec.controladores;
 
-import edu.unapec.respuestas.RespuestaProcesoExel;
+import edu.unapec.respuestas.RespuestaProcesoExcel;
 import edu.unapec.servicios.implementaciones.ArticuloServImpl;
 import edu.unapec.servicios.interfaces.ArticuloServIF;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,14 +25,14 @@ public class ExcelControladora {
 
     @RequestMapping(value = "inicio", method = RequestMethod.GET)
     public ModelAndView inicio(Model model){
-        model.addAttribute("respuestaProcesoExcel", new RespuestaProcesoExel());
+        model.addAttribute("respuestaProcesoExcel", new RespuestaProcesoExcel());
         return new ModelAndView(_index);
     }
 
     @RequestMapping(value = "procesarExcel", method = RequestMethod.GET)
     public ModelAndView procesarExcel(Model model){
         ArticuloServIF articuloServIF = (ArticuloServImpl) applicationContext.getBean("articuloServImpl");
-        RespuestaProcesoExel respuesta = articuloServIF.procesarValoresExcel();
+        RespuestaProcesoExcel respuesta = articuloServIF.procesarValoresExcel();
         model.addAttribute("respuestaProcesoExcel", respuesta);
         return new ModelAndView(_index);
     }

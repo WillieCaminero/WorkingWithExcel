@@ -1,7 +1,7 @@
 package edu.unapec.repositorios.interfaces;
 
 import edu.unapec.entidades.Articulo;
-import edu.unapec.respuestas.RespuestaProcesoExel;
+import edu.unapec.respuestas.RespuestaProcesoExcel;
 
 import java.util.List;
 
@@ -12,6 +12,6 @@ public interface ArticuloRepIF {
 
     List<Articulo> obtenerArticulos();
 
-    void escribirProcesoArticulos(RespuestaProcesoExel articulosProceso);
+    void escribirProcesoArticulos(RespuestaProcesoExcel articulosProceso);
 
 }

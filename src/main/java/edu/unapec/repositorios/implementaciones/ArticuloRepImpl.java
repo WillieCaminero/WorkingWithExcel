@@ -2,7 +2,7 @@ package edu.unapec.repositorios.implementaciones;
 
 import edu.unapec.entidades.Articulo;
 import edu.unapec.repositorios.interfaces.ArticuloRepIF;
-import edu.unapec.respuestas.RespuestaProcesoExel;
+import edu.unapec.respuestas.RespuestaProcesoExcel;
 import edu.unapec.utilidades.ExcelUtil;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
@@ -84,7 +84,7 @@ public class ArticuloRepImpl implements ArticuloRepIF {
     }
 
     @Override
-    public void escribirProcesoArticulos(RespuestaProcesoExel respuesta) {
+    public void escribirProcesoArticulos(RespuestaProcesoExcel respuesta) {
 
         try {
             XSSFWorkbook workbook = excelUtil.obtenerExcelPorRuta(environment.getProperty("ExcelArticulos"));

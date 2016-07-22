@@ -1,7 +1,7 @@
 package edu.unapec.servicios.interfaces;
 
 import edu.unapec.entidades.Articulo;
-import edu.unapec.respuestas.RespuestaProcesoExel;
+import edu.unapec.respuestas.RespuestaProcesoExcel;
 
 import java.util.List;
 
@@ -12,7 +12,7 @@ public interface ArticuloServIF {
 
     List<Articulo> obtenerArticulos();
 
-    void escribirProcesoArticulos(RespuestaProcesoExel articulosProceso);
+    void escribirProcesoArticulos(RespuestaProcesoExcel articulosProceso);
 
-    RespuestaProcesoExel procesarValoresExcel();
+    RespuestaProcesoExcel procesarValoresExcel();
 }

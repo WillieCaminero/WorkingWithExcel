@@ -3,7 +3,7 @@ package edu.unapec.respuestas;
 /**
  * Created by WillieManuel on 16/7/16.
  */
-public class RespuestaProcesoExel {
+public class RespuestaProcesoExcel {
 
     private int cantidadArticulos;
     private int cantidadArticulosGeneral;

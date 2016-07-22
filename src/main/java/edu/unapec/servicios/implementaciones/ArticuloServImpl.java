@@ -2,7 +2,7 @@ package edu.unapec.servicios.implementaciones;
 
 import edu.unapec.entidades.Articulo;
 import edu.unapec.repositorios.interfaces.ArticuloRepIF;
-import edu.unapec.respuestas.RespuestaProcesoExel;
+import edu.unapec.respuestas.RespuestaProcesoExcel;
 import edu.unapec.servicios.interfaces.ArticuloServIF;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -23,14 +23,14 @@ public class ArticuloServImpl implements ArticuloServIF {
     }
 
     @Override
-    public void escribirProcesoArticulos(RespuestaProcesoExel articulosProceso) {
+    public void escribirProcesoArticulos(RespuestaProcesoExcel articulosProceso) {
         articuloRepIF.escribirProcesoArticulos(articulosProceso);
     }
 
     @Override
-    public RespuestaProcesoExel procesarValoresExcel(){
+    public RespuestaProcesoExcel procesarValoresExcel(){
 
-        RespuestaProcesoExel respuesta = new RespuestaProcesoExel();
+        RespuestaProcesoExcel respuesta = new RespuestaProcesoExcel();
         List<Articulo> articulos = this.obtenerArticulos();
 
         int cantidadArticulos = 0;
