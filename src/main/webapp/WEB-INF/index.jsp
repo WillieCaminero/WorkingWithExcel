@@ -31,31 +31,31 @@
                         <div class="list-group">
                             <a href="" class="list-group-item">
                                 <h4 class="list-group-item-heading">Cantidad Total de Articulos:</h4>
-                                <p class="list-group-item-text"># ${articulosProceso.getCantidadArticulos()}</p>
+                                <p class="list-group-item-text"># ${respuestaProcesoExcel.getCantidadArticulos()}</p>
                             </a>
                         </div>
                         <div class="list-group">
                             <a href="" class="list-group-item">
                                 <h4 class="list-group-item-heading">Cantidad General de Articulos:</h4>
-                                <p class="list-group-item-text"># ${articulosProceso.getCantidadArticulosGeneral()}</p>
+                                <p class="list-group-item-text"># ${respuestaProcesoExcel.getCantidadArticulosGeneral()}</p>
                             </a>
                         </div>
                         <div class="list-group">
                             <a href="" class="list-group-item">
                                 <h4 class="list-group-item-heading">Ingresos Netos:</h4>
-                                <p class="list-group-item-text"># ${articulosProceso.getIngresosNetos()}</p>
+                                <p class="list-group-item-text"># ${respuestaProcesoExcel.getIngresosNetos()}</p>
                             </a>
                         </div>
                         <div class="list-group">
                             <a href="" class="list-group-item">
                                 <h4 class="list-group-item-heading">Impuestos:</h4>
-                                <p class="list-group-item-text"># ${articulosProceso.getImpuestos()}</p>
+                                <p class="list-group-item-text"># ${respuestaProcesoExcel.getImpuestos()}</p>
                             </a>
                         </div>
                         <div class="list-group">
                             <a href="" class="list-group-item">
                                 <h4 class="list-group-item-heading">Ingresos Brutos:</h4>
-                                <p class="list-group-item-text"># ${articulosProceso.getIngresosBrutos()}</p>
+                                <p class="list-group-item-text"># ${respuestaProcesoExcel.getIngresosBrutos()}</p>
                             </a>
                         </div>
                     </div>

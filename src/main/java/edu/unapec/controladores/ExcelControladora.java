@@ -1,7 +1,6 @@
 package edu.unapec.controladores;
 
-import edu.unapec.entidades.Articulo;
-import edu.unapec.entidades.ArticulosProceso;
+import edu.unapec.respuestas.RespuestaProcesoExel;
 import edu.unapec.servicios.implementaciones.ArticuloServImpl;
 import edu.unapec.servicios.interfaces.ArticuloServIF;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,44 +25,16 @@ public class ExcelControladora {
 
     @RequestMapping(value = "inicio", method = RequestMethod.GET)
     public ModelAndView inicio(Model model){
-        model.addAttribute("articulosProceso", new ArticulosProceso());
+        model.addAttribute("respuestaProcesoExcel", new RespuestaProcesoExel());
         return new ModelAndView(_index);
     }
 
     @RequestMapping(value = "procesarExcel", method = RequestMethod.GET)
-    public ModelAndView inicio2(Model model){
-        ArticulosProceso articulosProceso = realizarProceso();
-        model.addAttribute("articulosProceso", articulosProceso);
+    public ModelAndView procesarExcel(Model model){
+        ArticuloServIF articuloServIF = (ArticuloServImpl) applicationContext.getBean("articuloServImpl");
+        RespuestaProcesoExel respuesta = articuloServIF.procesarValoresExcel();
+        model.addAttribute("respuestaProcesoExcel", respuesta);
         return new ModelAndView(_index);
     }
 
-    private ArticulosProceso realizarProceso(){
-
-        ArticulosProceso articulosProceso = new ArticulosProceso();
-        ArticuloServIF articuloServIF = (ArticuloServImpl) applicationContext.getBean("articuloServImpl");
-        List<Articulo> articulos = articuloServIF.obtenerArticulos();
-
-        int cantidadArticulos = 0;
-        int cantidadArticulosGeneral = 0;
-        double ingresosNetos = 0.0;
-        double impuestos = 0.0;
-        double ingresosBrutos = 0.0;
-
-        for (Articulo articulo : articulos){
-            cantidadArticulos += 1;
-            cantidadArticulosGeneral += articulo.getCantidad();
-            ingresosNetos += articulo.getSubTotal();
-            impuestos += articulo.getImpuesto();
-            ingresosBrutos += articulo.getTotal();
-        }
-
-        articulosProceso.setCantidadArticulos(cantidadArticulos);
-        articulosProceso.setCantidadArticulosGeneral(cantidadArticulosGeneral);
-        articulosProceso.setIngresosNetos(ingresosNetos);
-        articulosProceso.setImpuestos(impuestos);
-        articulosProceso.setIngresosBrutos(ingresosBrutos);
-        articuloServIF.escribirProcesoArticulos(articulosProceso);
-
-        return articulosProceso;
-    }
 }

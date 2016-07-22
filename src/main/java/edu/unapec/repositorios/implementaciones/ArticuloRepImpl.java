@@ -1,11 +1,10 @@
 package edu.unapec.repositorios.implementaciones;
 
 import edu.unapec.entidades.Articulo;
-import edu.unapec.entidades.ArticulosProceso;
 import edu.unapec.repositorios.interfaces.ArticuloRepIF;
+import edu.unapec.respuestas.RespuestaProcesoExel;
 import edu.unapec.utilidades.ExcelUtil;
 import org.apache.poi.ss.usermodel.Cell;
-import org.apache.poi.ss.usermodel.FormulaEvaluator;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
@@ -85,7 +84,7 @@ public class ArticuloRepImpl implements ArticuloRepIF {
     }
 
     @Override
-    public void escribirProcesoArticulos(ArticulosProceso articulosProceso) {
+    public void escribirProcesoArticulos(RespuestaProcesoExel respuesta) {
 
         try {
             XSSFWorkbook workbook = excelUtil.obtenerExcelPorRuta(environment.getProperty("ExcelArticulos"));
@@ -114,19 +113,19 @@ public class ArticuloRepImpl implements ArticuloRepIF {
             Row rowResultadoProceso = sheet.createRow(1);
 
             Cell cell1 = rowResultadoProceso.createCell(0);
-            cell1.setCellValue(articulosProceso.getCantidadArticulos());
+            cell1.setCellValue(respuesta.getCantidadArticulos());
 
             Cell cell2 = rowResultadoProceso.createCell(1);
-            cell2.setCellValue(articulosProceso.getCantidadArticulosGeneral());
+            cell2.setCellValue(respuesta.getCantidadArticulosGeneral());
 
             Cell cell3 = rowResultadoProceso.createCell(2);
-            cell3.setCellValue(articulosProceso.getIngresosNetos());
+            cell3.setCellValue(respuesta.getIngresosNetos());
 
             Cell cell4= rowResultadoProceso.createCell(3);
-            cell4.setCellValue(articulosProceso.getImpuestos());
+            cell4.setCellValue(respuesta.getImpuestos());
 
             Cell cell5 = rowResultadoProceso.createCell(4);
-            cell5.setCellValue(articulosProceso.getIngresosBrutos());
+            cell5.setCellValue(respuesta.getIngresosBrutos());
 
             FileOutputStream out = new FileOutputStream(new File(environment.getProperty("ExcelArticulos")));
             workbook.write(out);

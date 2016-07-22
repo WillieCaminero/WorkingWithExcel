@@ -1,9 +1,9 @@
-package edu.unapec.entidades;
+package edu.unapec.respuestas;
 
 /**
  * Created by WillieManuel on 16/7/16.
  */
-public class ArticulosProceso {
+public class RespuestaProcesoExel {
 
     private int cantidadArticulos;
     private int cantidadArticulosGeneral;
